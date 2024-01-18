@@ -22,5 +22,3 @@ class Ball_Colored(Ball_Interface):
         localr = int(self.shape.radius)
         gfxdraw.filled_circle(screen, localx, localy, localr, self.color)
         gfxdraw.aacircle(screen, localx, localy, localr, self.color)
-        gfxdraw.filled_circle(screen, localx, localy, int(self.shape.radius * self.outlineRadius), self.darkerColor)
-        gfxdraw.aacircle(screen, localx, localy, int(self.shape.radius * self.outlineRadius), self.darkerColor)

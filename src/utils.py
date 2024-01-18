@@ -33,9 +33,11 @@ def randomColor():
 def wallCollision(arbiter, space, data):
     data["ball"].shape.unsafe_set_radius(data["ball"].shape.radius + data["growth"])
     pygame.mixer.Sound.play(data["sound"])
+    #data["hollowShape"].numberSides += 1
+    #data["hollowShape"].regenerate()
     return True
 
-def ballCollision(arbiter, space, data):
+def ballColoredCollision(arbiter, space, data):
     
     pygame.mixer.Sound.play(data["sound"])
     ball1 = data["ball1"]
@@ -46,6 +48,20 @@ def ballCollision(arbiter, space, data):
     else:
         ball2.updateColor(ball1.color)
     return True
+
+def ballImageCollision(arbiter, space, data):
+    
+    pygame.mixer.Sound.play(data["sound"])
+    ball1 = data["ball1"]
+    ball2 = data["ball2"]
+    rand = random()
+    if rand > 0.5:
+        ball1.updateImage(ball2.image)
+    else:
+        ball2.updateImage(ball1.image)
+    return True
+
+
 
 def loadImage(path):
     return pygame.image.load(path).convert_alpha()
